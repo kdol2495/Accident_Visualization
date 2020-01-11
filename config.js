@@ -1,0 +1,1 @@
+var api_key = "https://developer.nrel.gov/api/alt-fuel-stations/v1.json?fuel_type=E85,ELEC&state=CA&limit=2&api_key=Xj5gx5EmectsPMcYUUeInaq38kTonVNqfsEtDfxv&format=JSON";

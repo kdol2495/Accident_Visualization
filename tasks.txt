@@ -1,0 +1,5 @@
+tasks:
+-clean up dataframe for CA and TX (Remove Description column)
+-clean up zipcode column
+-classify urban, suburban, and rural from zipcode using an API - 
+-retrieve miles driven per year per zipcode data using an API - Chris
