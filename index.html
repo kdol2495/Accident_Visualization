@@ -2,44 +2,78 @@
 <html>
 
 <head>
+  <title>Bootstrap Version</title>
   <meta charset="utf-8">
-  <title>Car Accident Visualization</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/superhero/bootstrap.min.css">
-  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-  <link rel="stylesheet" href="static/css/style.css">
+  <meta name"viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <!-- API key -->
+  <script type="text/javascript" src="static/js/config.js"></script>
+  <!-- leaflet-heat-->
+  <script type="text/javascript" src="static/js/leaflet-heat.js"></script>
+  <!-- D3 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js"></script>
+
+  
+
+
+  <!--   <script type="text/javascript" src="js/uikit.js"></script> -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet-src.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link type="text/css" rel="stylesheet" href="style.css" />
+
+  <!-- Marker Cluster JS & CSS -->
+  <script type="text/javascript"
+    src="https://unpkg.com/leaflet.markercluster@1.0.3/dist/leaflet.markercluster.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.0.3/dist/MarkerCluster.css">
+  <link rel="stylesheet" type="text/css"
+    href="https://unpkg.com/leaflet.markercluster@1.0.3/dist/MarkerCluster.Default.css">
+
 </head>
 
 <body>
-  <div class="wrapper">
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="index.html">UFO Sightings
-            <img class="nav-ufo" src="static/images/ufo.svg">
-          </a>
-        </div>
-      </div>
-    </nav>
-    <div class="hero text-center">
-      <h1>Car Accidents in California and Texas</h1>
-      <p>Do Your Drivers Suck?</p>
-    </div>
-    <div class="container">
-      <!-- Columns 1 -->
-      <div class="row margin-top-50">
-        <div class="col-md-6">
-          <p> Stuff</p>
-        </div>
 
-        <div class="col-md-6">
-          <div id="map"></div>
-        </div>
-        
+
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <a class="navbar-brand" href="#"><img id="logo" src="image/bootstrap.png">Bootstrap</a>
+
+
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-main">
+          <span class="sr-only">Navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+
+
       </div>
-      <!-- Row2 -->
-      <div class="row margin-top-50">
-        <div class="col-md-3">
+
+      <div class="collapse navbar-collapse" id="navbar-collapse-main">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a class="active" href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Contact</a></li>
+
+        </ul>
+
+      </div>
+
+    </div>
+  </nav>
+ 
+
+  <div class="padding" id="map-container">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4" style='border: 1px solid red'>
+          <!-- insert the dropdowns here -->
           <aside class="filters">
             <div class="panel panel-default">
               <div class="panel-heading">Filter Search</div>
@@ -80,46 +114,54 @@
               </div>
             </div>
           </aside>
-        </div>
-        <div class="col-md-9">
-          <div id="table-area" class="">
-            <table id="ufo-table" class="table table-striped">
-              <thead>
-                <tr>
-                  <th class="table-head">Date</th>
-                  <th class="table-head">City</th>
-                  <th class="table-head">State</th>
-                  <th class="table-head">Country</th>
-                  <th class="table-head">Shape</th>
-                  <th class="table-head">Duration</th>
-                  <th class="table-head">Comments</th>
-                </tr>
-              </thead>
-              <tbody>
 
-
-              </tbody>
-            </table>
-          </div>
         </div>
+
+        <div class="col-md-8" style='border: 1px solid red '>
+
+          <!--p>Lorem ipsum dolor sit amet, qui ea delenit qualisque, ne duo tollit dolore hendrerit. Exerci postulant eos at, has causae electram id. Legimus contentiones eum te, eos eligendi vituperata ad, no ferri offendit referrentur vis. Homero virtute habemus ad sed, nec ferri viris in. Te labore adolescens ius, his consulatu eloquentiam ea, mea nulla appareat dignissim an. Ei his magna expetenda, nihil copiosae quo ut, percipit insolens mea an.
+                            </p-->
+          <div id="map"></div>
+
+        </div>
+
       </div>
-    </div>
-    <footer class="footer">
-      <span class="bottom">UFO Sightings</span>
-    </footer>
-  </div>
-  <!-- Leaflet JavaScript -->
-  <script src="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
-  <!-- API key -->
-  <script type="text/javascript" src="static/js/config.js"></script>
-  <!-- leaflet-heat-->
-  <script type="text/javascript" src="static/js/leaflet-heat.js"></script>
-  <!-- D3 -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js"></script>
 
-  <script src="static/js/data.js"></script>
-  <!-- Javascript file that does everything -->
-  <script src="static/js/app.js"></script>
+    </div>
+  </div>
+  <div class="row margin-top-50">
+    <div class="col-md-12">
+      <div id="table-area" class="">
+        <table id="accident-table" class="table table-striped">
+          <thead>
+            <tr>
+              <th class="table-head">Date</th>
+              <th class="table-head">City</th>
+              <th class="table-head">State</th>
+              <th class="table-head">Country</th>
+              <th class="table-head">Shape</th>
+              <th class="table-head">Duration</th>
+              <th class="table-head">Comments</th>
+            </tr>
+          </thead>
+          <tbody>
+  
+  
+          </tbody>
+        </table>
+      </div>
+  
+    </div>
+
+
+
+
+
+
+
+  </div>
+  
 </body>
+<script type="text/javascript" src="/static/js/test.js"></script>
 
 </html>

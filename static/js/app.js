@@ -127,15 +127,16 @@ button.on("click", handleClick);
 
 
 // Store our API endpoint inside queryUrl
-var url = "/static/data/data.csv";
+var url = "/Accident-Visualization/New Branch/Accident_Visualization/static/data/data.csv";
 
 //create an empty array that will hold arrays of the lat, lng, and intensity for each earthquake 
 var heatpoints = []
 
 
 // Perform a GET request to the query URL
-d3.json(queryUrl, function (data) {
+d3.csv(url, function (data) {
   // Once we get a response, send the data.features object to the createFeatures function
+  console.log(data);
   createFeatures(data.features);
 });
 
@@ -286,9 +287,10 @@ function createMap(earthquakes, geoJson2heat) {
   // Create our map, giving it the streetmap and earthquakes layers to display on load
   var myMap = L.map("map", {
     center: [
-      37.09, -95.71
+    0,0
+        //   37.09, -95.71
     ],
-    zoom: 4,
+    zoom: 0,
     layers: [streetmap, satmap, earthquakes, heat]
   });
 
@@ -329,7 +331,7 @@ function createMap(earthquakes, geoJson2heat) {
 
 
   // Adding legend to the map
-  legend.addTo(myMap);
+  //legend.addTo(myMap);
 
   // Create a layer control
   // Pass in our baseMaps and overlayMaps
@@ -337,6 +339,8 @@ function createMap(earthquakes, geoJson2heat) {
   L.control.layers(baseMaps, overlayMaps, {
     collapsed: false
   }).addTo(myMap);
+
+
 
   
 
