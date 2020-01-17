@@ -4,7 +4,7 @@ import sqlalchemy as db
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func
-from flask import Flask, import request
+from flask import Flask,request, render_template, send_from_directory, current_app
 import simplejson as json
 import decimal, datetime
 
@@ -36,22 +36,30 @@ accident_table = db.Table('ACCIDENTS', metadata, autoload=True, autoload_with=en
 #################################################
 # Flask Setup
 #################################################
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static', static_url_path='')
 
 
 #################################################
 # Flask Routes
 #################################################
+@app.route('/<path:path>')
+def serve_page(path):
+    return send_from_directory('client', path)
 
 @app.route("/")
+
 def welcome():
     """List all available api routes."""
-    return (
-        f"Available Routes:<br/>"
-        f"/api/v1.0/names<br/>"
-        f"/api/v1.0/passengers"
-        f"/api/v1.0/all_accidents"
-    )
+    message = "hello"
+    #return render_template('index.html', message=message)
+    return current_app.send_static_file('index.html')
+    # return (
+    #     f"Available Routes:<br/>"
+    #     f"/api/v1.0/names<br/>"
+    #     f"/api/v1.0/all_accidents<br>"
+    #     f"/api/v1.0/map_data"
+    
+    
 
 
 @app.route("/api/v1.0/all_accidents")
@@ -68,9 +76,10 @@ def all_accidents():
 @app.route("/api/v1.0/map_data")
 def map_data():
     connection = engine.connect()
-    query = db.select([accident_table])
+    query = db.select([accident_table.c.Start_Lat, accident_table.c.Start_Lng])
     ResultProxy = connection.execute(query)
     result = ResultProxy.fetchall()
+    return json.dumps([dict(r) for r in result], default=alchemyencoder)
 
 
 

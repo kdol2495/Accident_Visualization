@@ -1,3 +1,4 @@
+//modified 
 // Store our API endpoint inside queryUrl
 //var url = "/static/data/data.csv";
 var url = "http://127.0.0.1:5000/api/v1.0/map_data";
@@ -14,7 +15,7 @@ var markers = L.markerClusterGroup();
 d3.json(url, function (data) {
     // Once we get a response, send the data.features object to the createFeatures function
     //console.log(data);
-    console.log("test")
+    console.log("test3")
     createFeatures(data);
     
 });
