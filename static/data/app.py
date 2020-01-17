@@ -1,25 +1,38 @@
 import numpy as np
-
-import sqlalchemy
+import json
+import sqlalchemy as db
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func
 
-from flask import Flask, jsonify
+from flask import Flask
+import simplejson as json
+import decimal, datetime
+
+def alchemyencoder(obj):
+    """JSON encoder function for SQLAlchemy special classes."""
+    if isinstance(obj, datetime.date):
+        return obj.isoformat()
+    elif isinstance(obj, decimal.Decimal):
+        return float(obj)
+
+def example():
+    connection = engine.connect()
+    res = conection.execute(select([accident_table]))
+
+    # use special handler for dates and decimals
+    return json.dumps([dict(r) for r in res], default=alchemyencoder)
 
 
 #################################################
 # Database Setup
 #################################################
-engine = create_engine("sqlite:///accidents.db")
+engine = create_engine("sqlite:///test.sqlite.db3")
 
-# reflect an existing database into a new model
-Base = declarative_base()
-# reflect the tables
-Base.prepare(engine, reflect=True)
 
-# Save reference to the table
-Accident = Base.classes.ACCIDENTS
+metadata = db.MetaData()
+
+accident_table = db.Table('ACCIDENTS', metadata, autoload=True, autoload_with=engine)
 
 #################################################
 # Flask Setup
@@ -44,19 +57,25 @@ def welcome():
 
 @app.route("/api/v1.0/all_accidents")
 def all_accidents():
-    # Create our session (link) from Python to the DB
-    session = Session(engine)
+    connection = engine.connect()
 
     """Return a list of all accidents"""
-    # Query all passengers
-    results = session.query(Accident.City).all()
-
-    session.close()
-
+    #Equivalent to 'SELECT * FROM accidents'
+    query = db.select([accident_table])
+    ResultProxy = connection.execute(query)
+    result = ResultProxy.fetchall()
+    #ResultSet[:3]
     # Convert list of tuples into normal list
-    all_names = list(np.ravel(results))
+    #all_accidents = list(np.ravel(ResultSet))
 
-    return jsonify(all_names)
+    
+
+
+    
+
+    # #print(result)
+    #return jsonify({'result': [dict(row) for row in result]})
+    return json.dumps([dict(r) for r in result], default=alchemyencoder)
 
 
 @app.route("/api/v1.0/passengers")
