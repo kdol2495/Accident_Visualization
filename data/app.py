@@ -81,6 +81,15 @@ def map_data():
     result = ResultProxy.fetchall()
     return json.dumps([dict(r) for r in result], default=alchemyencoder)
 
+@app.route("/api/v1.0/horizontal_bar")
+def severity_data():
+    connection = engine.connect()
+    ResultProxy= connection.execute("select Count(Severity), Severity from Accidents Group By Severity")
+    result = ResultProxy.fetchall()
+    return json.dumps([dict(r) for r in result], default=alchemyencoder)
+
+
+
 
 
 if __name__ == '__main__':
