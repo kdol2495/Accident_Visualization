@@ -23,7 +23,7 @@ d3.json(url, function (data) {
 function createFeatures(accidentData) {
     // Pull the "stations" property off of response.data
     var accidentMarkers = [];
-    console.log(accidentData["Start_Time"]);
+    //console.log(accidentData["Start_Time"]);
     
 
     for (var index = 0; index < accidentData.length; index++) {
