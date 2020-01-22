@@ -1,3 +1,81 @@
+// This is for the flask app later
+
+// from flask import Flask
+// from flask import render_template
+// from datetime import time
+
+
+// app = Flask(__name__)
+
+
+// @app.route("/horizontalbar_chart")
+// def chart():
+//     legend = 'Monthly Data'
+//     labels = ["1", "2", "3", "4"]
+//     values = db.
+//     return render_template('index.html', values=values, labels=labels, legend=legend)
+
+
+// if __name__ == "__main__":
+//     app.run(debug=True)
+
+//chart.js plotting 
+
+var url = "http://127.0.0.1:5000/api/v1.0/horizontal_bar";
+
+var MeSeContext = document.getElementById("myChart").getContext("2d");
+
+d3.json("url").then(makeChart);
+
+function makeChart(severity) {
+    var severityData = severity.map(function(d) {
+        return +d.Severity
+    });
+    console.log(severityData);
+    
+
+    var chart = new Chart(MeSeContext, {
+        type: "horizontalBar",
+        options: {
+            maintainAspectRatio: true,
+            legend: {
+                display: true
+            },
+            scales: {
+                xAxes: [{
+                    ticks: {
+                        min: 0,
+                        max: 10000 // Edit the value according to what you need
+                    }
+                }],
+                yAxes: [{
+                    stacked: true
+                }]
+            }
+
+        },
+        labels: cityData,
+        datasets: [
+            {
+                data: severityData
+            }
+        ]
+    });
+};
+// Request data using D3
+
+
+// @app.route("/api/v1.0/horizontal_bar")
+// def severity_data():
+//     connection = engine.connect()
+//     ResultProxy= connection.execute("select Count(Severity), Severity from Accidents Group By Severity")
+//     result = ResultProxy.fetchall()
+//     return json.dumps([dict(r) for r in result], default=alchemyencoder)
+
+
+
+
+
 <!DOCTYPE html>
 <html>
 
@@ -130,33 +208,31 @@
 
     </div>
   </div>
-  
+  <canvas id="myChart" width="500" height="350"></canvas>
   <div class="row margin-top-50">
     <div class="col-md-12">
-      <canvas id="myChart" width="350" height="200"></canvas>
-      <h1> Test!</h1>
       <div id="table-area" class="">
-      
+        <table id="accident-table" class="table table-striped">
+          <thead>
+            <tr>
+              <th class="table-head">Date</th>
+              <th class="table-head">City</th>
+              <th class="table-head">State</th>
+              <th class="table-head">Country</th>
+              <th class="table-head">Shape</th>
+              <th class="table-head">Duration</th>
+              <th class="table-head">Comments</th>
+            </tr>
+          </thead>
+          <tbody>
+  
+  
+          </tbody>
+        </table>
       </div>
   
     </div>
-    <!-- <table id="accident-table" class="table table-striped">
-      <thead>
-        <tr>
-          <th class="table-head">Date</th>
-          <th class="table-head">City</th>
-          <th class="table-head">State</th>
-          <th class="table-head">Country</th>
-          <th class="table-head">Shape</th>
-          <th class="table-head">Duration</th>
-          <th class="table-head">Comments</th>
-        </tr>
-      </thead>
-      <tbody>
 
-
-      </tbody>
-    </table> -->
 
 
 
@@ -167,6 +243,6 @@
   
 </body>
 <script type="text/javascript" src="../js/test.js"></script>
-<script type="text/javascript" src="../js/logic2.js"></script>
+<script src="text/javascript" src="../js/logic2.js"
 
 </html>
