@@ -1,0 +1,15 @@
+/* .arc text {
+    font: 12px sans-serif;
+    text-anchor: middle;
+}
+
+.arc path {
+    stroke: #fff;
+} */
+
+.bar {
+      fill: blue;
+    }
+.bar:hover {
+      fill: purple;
+}
