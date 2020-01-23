@@ -107,6 +107,20 @@ def severity_data():
     result = ResultProxy.fetchall()
     return json.dumps([dict(r) for r in result], default=alchemyencoder)
 
+@app.route("/api/v1.0/city_bar")
+def city_data():
+    connection = engine.connect()
+    ResultProxy= connection.execute("select Count(city), city from Accidents Group By City")
+    result = ResultProxy.fetchall()
+    return json.dumps([dict(r) for r in result], default=alchemyencoder)
+
+@app.route("/api/v1.0/state_bar")
+def state_data():
+    connection = engine.connect()
+    ResultProxy= connection.execute("select Count(state), state from Accidents Group By state")
+    result = ResultProxy.fetchall()
+    return json.dumps([dict(r) for r in result], default=alchemyencoder)
+
 
 
 
