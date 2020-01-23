@@ -75,7 +75,7 @@
       <div class="row">
         <div class="col-md-4" style='border: 1px solid red'>
           <!-- insert the dropdowns here --><form class="handle_data" method="POST" action="/submitted">
-            <select name="CityDropdown">
+            <select name="CityDropdown" id='city'>
               <option value="San Jose">San Jose </option>
               <option value="Sacramento">Sacramento</option>
               <option value="Los Angeles">Los Angeles</option>
@@ -86,46 +86,12 @@
               <option value="Houston">Houston</option>
               <option value="Fort Worth">Fort Worth</option>
             </select>
-            <button type="submit">Compare!</button>
+              <button type="submit" onclick='somefunction()'>Compare!</button>
           </form>
           <aside class="filters">
             <div class="panel panel-default">
-              <div class="panel-heading">Filter Search</div>
-              <div class="panel-body">
-                <form>
-                  <div class="form-group">
-                    <ul class="list-group" id="filters">
-                      <li class="filter list-group-item">
-                        <label for="date">Enter a Date</label>
-                        <input class="form-control" id="datetime" type="text" placeholder="1/11/2011">
-                      </li>
-
-                      <li class="filter list-group-item">
-                        <label for="date">Enter a City</label>
-                        <input class="form-control" id="city" type="text" placeholder="naples">
-                      </li>
-
-                      <li class="filter list-group-item">
-                        <label for="date">Enter a State (2 Letter Abbreviation)</label>
-                        <input class="form-control" id="state" type="text" placeholder="tx">
-                      </li>
-
-                      <li class="filter list-group-item">
-                        <label for="date">Enter a country (2 Letter Abbreviation)</label>
-                        <input class="form-control" id="country" type="text" placeholder="us">
-                      </li>
-
-                      <li class="filter list-group-item">
-                        <label for="date">Enter a shape (2 Letter Abbreviation)</label>
-                        <input class="form-control" id="shape" type="text" placeholder="circle">
-                      </li>
-
-
-                    </ul>
-                  </div>
-                  <button id="filter-btn" type="button" class="btn btn-default">Filter Table</button>
-                </form>
-              </div>
+              
+              
             </div>
           </aside>
 
@@ -135,7 +101,9 @@
 
           <!--p>Lorem ipsum dolor sit amet, qui ea delenit qualisque, ne duo tollit dolore hendrerit. Exerci postulant eos at, has causae electram id. Legimus contentiones eum te, eos eligendi vituperata ad, no ferri offendit referrentur vis. Homero virtute habemus ad sed, nec ferri viris in. Te labore adolescens ius, his consulatu eloquentiam ea, mea nulla appareat dignissim an. Ei his magna expetenda, nihil copiosae quo ut, percipit insolens mea an.
                             </p-->
-          <div id="map"></div>
+          <div id="map">
+            
+          </div>
 
         </div>
 

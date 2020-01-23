@@ -15,7 +15,7 @@ var markers = L.markerClusterGroup();
 d3.json(url, function (data) {
     // Once we get a response, send the data.features object to the createFeatures function
     //console.log(data);
-    console.log("test3")
+    console.log("loading all cities")
     createFeatures(data);
     
 });
@@ -82,6 +82,17 @@ function createMap(accidentMarkers) {
     }).addTo(map);
 }
 
+function somefunction() {
+    var chosenValue = d3.select('city').property('value');
+    url = "localhost:5000/submitted/" + chosenValue;
+    d3.json(url, function(d) 
+    {
+        createFeatures(d);
+        console.log(d);
+
+    })
+
+}
 
 
 
