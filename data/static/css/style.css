@@ -43,3 +43,9 @@ body {
   height: 800px;
   width: 100%;
 }
+#chart-container {
+  position: relative;
+  padding-top: 120px;
+  padding-left: 10px;
+
+}

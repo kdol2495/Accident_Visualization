@@ -15,7 +15,8 @@ d3.json(url, function (d) {
     var chart = new Chart(MeSeContext, {
         type: 'horizontalBar',
         data: {
-          labels: ["0", "1", "2", "3", "4"],
+          labels: ["Austin", "Dallas", "Fort Worth", "Houston", "Los Angeles",
+          "Oakland", "Sacramento", "San Antonio", "San Diego", "San Jose"],
           datasets: [
             {
               label: "City",
