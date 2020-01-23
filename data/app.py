@@ -51,13 +51,14 @@ def serve_page(path):
 def welcome():
     """List all available api routes."""
     message = "hello"
-    #return render_template('index.html', message=message)
-    return current_app.send_static_file('index.html')
+    return render_template('index.html', message=message)
+    # return current_app.send_static_file('index.html')
     # return (
     #     f"Available Routes:<br/>"
     #     f"/api/v1.0/names<br/>"
     #     f"/api/v1.0/all_accidents<br>"
     #     f"/api/v1.0/map_data"
+
     
     
 
