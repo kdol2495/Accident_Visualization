@@ -20,7 +20,9 @@ d3.json(url, function (d) {
             {
               label: "Severity",
               backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
-              data: [3, 119, 198561, 91908, 2118]
+              data: test_var.data
+
+            //   data: [3, 119, 198561, 91908, 2118]
             }
           ]
         },
