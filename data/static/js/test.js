@@ -10,7 +10,7 @@ var heatpoints = []
 // Create a new marker cluster group
 var markers = L.markerClusterGroup();
 
-
+somefunction();
 // Perform a GET request to the query URL
 d3.json(url, function (data) {
     // Once we get a response, send the data.features object to the createFeatures function
@@ -84,6 +84,7 @@ function createMap(accidentMarkers) {
 
 function somefunction() {
     var chosenValue = d3.select('city').property('value');
+    console.log(chosenValue);
     url = "localhost:5000/submitted/" + chosenValue;
     d3.json(url, function(d) 
     {

@@ -82,8 +82,8 @@ def map_data():
     result = ResultProxy.fetchall()
     return json.dumps([dict(r) for r in result], default=alchemyencoder)
 
-@app.route('/submitted/<datainput>', methods=['POST'])
-def handle_data(datainput):
+@app.route('/submitted', methods=['POST'])
+def handle_data():
     # projectpath = request.form["CityDropdown"]
     projectpath = request.form.get('CityDropdown')
 
@@ -92,7 +92,7 @@ def handle_data(datainput):
     """Return a list of all accidents"""
     #Equivalent to 'SELECT * FROM accidents'
     # query = db.select([accident_table])
-    query = 'select Start_Lat, Start_Lng, city from Accidents Where city =' + "'" + datainput +"'"
+    query = 'select Start_Lat, Start_Lng, city from Accidents Where city =' + "'" + projectpath +"'"
     ResultProxy = connection.execute(query)
     result = ResultProxy.fetchall()
     data = json.dumps([dict(r) for r in result], default=alchemyencoder)
