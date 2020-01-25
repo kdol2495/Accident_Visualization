@@ -126,3 +126,41 @@ d3.json(url, function (d) {
 //         ]
 //     });
 // };
+
+
+//chart.js plotting 
+var url2 = "http://127.0.0.1:5000/api/v1.0/city_bar";
+
+var MeSeContext2 = document.getElementById("myChart3").getContext("2d");
+
+d3.json(url2, function (d) {
+    console.log('data', d);
+    // console.log("hello");
+
+    var test_var2 = {
+        'data': d.map(e => e['Count(city)'])
+    };
+    console.log('test', test_var2.data[0]);
+
+    var chart = new Chart(MeSeContext2, {
+        type: 'horizontalBar',
+        data: {
+          labels: ["Austin", "Dallas", "Fort Worth", "Houston", "Los Angeles",
+          "Oakland", "Sacramento", "San Antonio", "San Diego", "San Jose"],
+          datasets: [
+            {
+              label: "City",
+              backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+              data: test_var2.data
+            }
+          ]
+        },
+        options: {
+          legend: { display: true },
+          title: {
+            display: true,
+            text: 'Number of Accidents by City'
+          }
+        }
+    });
+}); 

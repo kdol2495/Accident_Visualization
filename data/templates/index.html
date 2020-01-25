@@ -18,7 +18,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js"></script>
   <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-  
+
 
 
   <!--   <script type="text/javascript" src="js/uikit.js"></script> -->
@@ -68,13 +68,15 @@
 
     </div>
   </nav>
- 
+
 
   <div class="padding" id="map-container">
     <div class="container">
+      <!-- Row 1 -->
       <div class="row">
         <div class="col-md-4" style='border: 1px solid red'>
-          <!-- insert the dropdowns here --><form class="handle_data" method="POST" action="/submitted">
+          <!-- insert the dropdowns here -->
+          <form class="handle_data" method="POST" action="/submitted">
             <select name="CityDropdown" id='city'>
               <option value="San Jose">San Jose </option>
               <option value="Sacramento">Sacramento</option>
@@ -86,12 +88,12 @@
               <option value="Houston">Houston</option>
               <option value="Fort Worth">Fort Worth</option>
             </select>
-              <button id='button' type="submit" onclick='handleClick()'>Compare!</button>
+            <button id='button' type="submit" onclick='handleClick()'>Compare!</button>
           </form>
           <aside class="filters">
             <div class="panel panel-default">
-              
-              
+
+
             </div>
           </aside>
 
@@ -102,36 +104,74 @@
           <!--p>Lorem ipsum dolor sit amet, qui ea delenit qualisque, ne duo tollit dolore hendrerit. Exerci postulant eos at, has causae electram id. Legimus contentiones eum te, eos eligendi vituperata ad, no ferri offendit referrentur vis. Homero virtute habemus ad sed, nec ferri viris in. Te labore adolescens ius, his consulatu eloquentiam ea, mea nulla appareat dignissim an. Ei his magna expetenda, nihil copiosae quo ut, percipit insolens mea an.
                             </p-->
           <div id="map">
-            
+
           </div>
-<!-- chart goes here -->
+          <!-- chart goes here -->
         </div>
 
       </div>
+       <!-- Row 2 -->
+      <div class="row">
+        <div class="col-md-12" style='border: 1px solid green'>
+          <div style="width: 100%; overflow: hidden;">
+            <div class="card">
+              <div class="card-body">
+                <!-- <canvas id="myChart" width="200" height="200"></canvas>Right 2 -->
+              </div>
+              
+            </div>
+        
+            <div style="margin-left: 620px;">
+              
+            </div>
+            <!-- <div style="margin-left: 620px;">
+              <canvas id="myChart3" width="200" height="200"></canvas>Right 
+            </div> -->
+          </div>
+        </div>
+      </div>
+      <!-- Row 3 -->
+      <div class="row">
+        <div class="col-md-6" style='border: 1px solid red'>
+          <div class="card">
+            <div class="card-body">
+              <!-- <canvas id="myChart3" width="200" height="200"></canvas>Right 2 -->
+            </div>
+            
+          </div>
+        </div>
+        </div>
+
+        <div class="col-xs-6">
+          <div class="panel panel-default">
+              <div class="panel-heading">
+                  <h3 class="panel-title">Accident Severity Count</h3>
+              </div>
+              <div class="panel-content text-center">
+                  <canvas id="myChart" class="chart"></canvas>
+              </div>
+              <div class="panel-footer">Accident Severity Measures the Net Impact on Traffic</div>
+          </div>
+      </div>
+
+      <div class="col-xs-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Count of Accidents by City</h3>
+            </div>
+            <div class="panel-content text-center">
+                <canvas id="myChart3" class="chart"></canvas>
+            </div>
+            <div class="panel-footer">The Number of Accidents by City</div>
+        </div>
+    </div>
+
+
 
     </div>
   </div>
-<div style="width: 100%; overflow: hidden;">
-  <div style="width: 600px; float: left;"> 
-    <canvas id="myChart" width="200" height="200" ></canvas>Left </div>
-  <div style="margin-left: 620px;"> 
-    <canvas id="myChart3" width="200" height="200" ></canvas>Right </div>
-</div>
-<div class='chart-container'>
-  
-    <div class="row">
-      <div class="col-md-12">
-          
-      </div>
-    </div>
-    
 
-    
-  
-</div>
-  
-  
-  
+ 
 
 
 
@@ -139,12 +179,15 @@
 
 
 
-  
-  
+
+
+
+
+
 </body>
 <script type="text/javascript" src="../js/test.js"></script>
 <script type="text/javascript" src="../js/logic2.js"></script>
-<script type="text/javascript" src="../js/logic3.js"></script>
+<!-- <script type="text/javascript" src="../js/logic3.js"></script> -->
 
 
 </html>

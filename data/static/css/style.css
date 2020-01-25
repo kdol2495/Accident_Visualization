@@ -10,6 +10,16 @@ body {
   font-size: 12px;
 }
 
+.mychart{
+  width: 50%; /* set width to 50% of page width */
+  float: left; /* Make the element go to the left */
+}
+
+.mychart3{
+  width: 50%;
+  float: right;
+}
+
 .navbar-brand {
   min-height: 60px;
   padding: 0 20px 5px;
